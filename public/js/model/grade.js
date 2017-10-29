@@ -5,7 +5,7 @@ define(['jquery','underscore','backbone'],
     function ($,_,Backbone) {
     var grade = Backbone.Model.extend({
         el:'',
-        tempate:
+        tempate:""
     })
     return {};
 });
