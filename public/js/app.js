@@ -7,46 +7,31 @@ require.config({
         'jquery':'lib/jquery.min',
         'bootstrap':'lib/bootstrap.min',
         'backbone':'lib/backbone',
-        'underscore':'lib/underscore'
+        'underscore':'lib/underscore',
+        'serializeObject':'lib/serializeObject',
+        'backbone-validation-amd':'lib/backbone-validation-amd'
     },
     shim:{
-        'lib/underscore':{
+        underscore:{
             exports:'_'
         },
-        'lib/backbone':{
-            deps:["lib/underscore","jquery"],
+        backbone:{
+            deps:["underscore","jquery"],
             exports:'Backbone'
         },
         bootstrap:{
+            deps:["jquery"]
+        },
+        serializeObject:{
             deps:["jquery"]
         }
     }
 })
 
-require(["jquery","underscore","backbone","view/formView","model/user","bootstrap","lib/backbone-forms"],
-    function ($,_,Backbone,FormView,User) {
-  /*      var user = new User({
-            schema: {
-                title: 'Mr',
-                name: 'Sterling Archer',
-                email: 'sterling@isis.com',
-                birthday: new Date(1978, 6, 12),
-                password: 'dangerzone',
-                notes: [
-                    'Buy new turtleneck',
-                    'Call Woodhouse',
-                    'Buy booze'
-                ]
-            }
-        });*/
-       /* var formView = new FormView({
-            model:user
-        });*/
-       var user = new User();
-       var formView = new Backbone.Form({
-           model:user
-       });
+require(["jquery","underscore","backbone","view/formView","model/user","router/router","bootstrap","lib/backbone-forms"],
+    function ($,_,Backbone,FormView,User,Router) {
+      var router= new Router();
+      Backbone.history.start()
 
-        $("#grade").append(formView.render().el)
 
     });
