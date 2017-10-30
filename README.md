@@ -1,6 +1,1 @@
-# BackbonePhysical
-Backbone bootstrap
-backbone.validation
-
-https://jsfiddle.net/thedersen/udXL5/
-http://thedersen.com/projects/backbone-validation/examples/#
+# BackbonePhysicalBackbone bootstrapbackbone.validationhttps://jsfiddle.net/thedersen/udXL5/http://thedersen.com/projects/backbone-validation/examples/#https://github.com/passport/express-4.x-local-example/blob/master/server.js
