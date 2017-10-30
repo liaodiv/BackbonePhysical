@@ -10,87 +10,136 @@
 <header role="banner">
     <nav role="navigation" class="nav navbar-default">
         <div class="container">
-        <div class="navbar-header ">
-            <a class="navbar-brand"><span class="white">教师成绩录入窗口</span></a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span  class="white">登陆</span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">登出</a></li>
-                    <li><a href="#">信息</a></li></li>
-                </ul>
-        </ul>
+            <div class="navbar-header ">
+                <a class="navbar-brand"><span class="white">教师成绩录入窗口</span></a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span
+                        class="white">登陆</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">登出</a></li>
+                        <li><a href="#">信息</a></li>
+                        </li>
+                    </ul>
+            </ul>
         </div>
     </nav>
 
 </header>
+<div class="container">
     <br>
     <div id="grade">
-<!--    <div class="form-group">
-        <label class="control-label">学号：</label>
-        <input type="text" value="" datatype="Sno"  name="id"  errormsg="请输入11位学号">
-    </div>
-    <fieldset disabled>
-        <div class="form-group">
-            <label class="control-label">姓名：</label>
-            <input type="text" value="" name="name"  />
-        </div>
 
-        <div class="form-group">
-            <label class="control-label">性别：</label>
-            <label>
-                <input type="radio" name="optionRadios"> 男
-            </label>
-            <label >
-                <input type="radio" name="optionRadios"> 女
-            </label>
-        </div>
-    </fieldset>
-    <div class="form-group">
-        <label class="control-label">身高：</label>
-        <input type="text" value="" name="height" placeholder="cm" datatype="height"/>
 
     </div>
-    <div class="form-group">
-        <label class="control-label">体重：</label>
-        <input type="text" value="" name="weight" placeholder="kg" datatype="n2-3"  />
-    </div>
-    <div class="form-group">
-        <label class="control-label">肺活量：</label>
-        <input type="text" value="" name="lung" datatype="n4-4" />
-    </div>
-    <div class="form-group">
-        <label class="control-label">50米：</label>
-        <input type="text" value="" name="frun" placeholder="秒" datatype="frun"  />
-    </div>
-    <div class="form-group">
-        <label class="control-label">跳远：</label>
-        <input type="text" value="" name="jump" placeholder="m" datatype="jump"/>
-    </div>
-    <div class="form-group">
-        <label class="control-label">坐位体前屈：</label>
-        <input type="text" value="" name="zuowei"  placeholder="cm" datatype="zuowei"/>
-    </div>
-    <div class="form-group">
-        <label class="control-label">引体向上：</label>
-        <input type="text" value="" name="ytxs" placeholder="个"  datatype="n1-2"/>
-    </div>
-    <div class="form-group">
-        <label class="control-label">1000米：</label>
-        <input type="time" value="" name="onerun" datatype="erun"/>
-    </div>
-    <div class="form-group">
-        <label class="control-label">仰卧起坐：</label>
-        <input type="text" value="" name="ywqz"  datatype="n1-2"/>
-    </div>
-    <div class="form-group">
-        <label class="control-label">800米：</label>
-        <input type="time" value=""  name="erun" datatype="erun"/>
-    </div>
-    <div class="form-group put">
-        <input  type="submit" value="提 交" /> <input type="reset" value="重 置" />
-    </div>-->
-    </div>
+</div>
+
+<script type="text/template" id="grade-template">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">学号</label>
+            <div class="col-sm-3 ">
+                <input type="text" value="" datatype="Sno" name="id" errormsg="请输入11位学号">
+            </div>
+            <span class="col-sm-4 help-block">A block of help text tha</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">姓名</label>
+            <div class="col-sm-3 ">
+                <input type="text" value="" name="name" placeholder="cm" data-error-style="inline"/>
+            </div>
+            <span class="col-sm-4 help-block">A block of help text tha</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">性别</label>
+            <div class="col-sm-3 ">
+                <label>
+                    <input type="radio" name="optionRadios" value="1"> 男
+                </label>
+                <label>
+                    <input type="radio" name="optionRadios" value="2"> 女
+                </label>
+            </div>
+            <span class="col-sm-4 help-block">A block of help text tha</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">身高</label>
+            <div class="col-sm-3 ">
+                <input type="text" value="" name="height" placeholder="cm" data-error-style="inline"/>
+            </div>
+            <span class="col-sm-4 help-block">A block of help text tha</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">体重</label>
+            <div class="col-sm-3 ">
+                <input type="text" value="" name="weight" placeholder="kg" data-error-style="inline"/>
+            </div>
+            <span class="col-sm-4 help-block">A block of help text tha</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">肺活量</label>
+            <div class="col-sm-3 ">
+                <input type="text" value="" name="lung" placeholder="ml" data-error-style="inline"/>
+            </div>
+            <span class="col-sm-4 help-block">A block of help text tha</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">50米</label>
+            <div class="col-sm-3 ">
+                <input type="text" value="" name="frun" placeholder="秒" data-error-style="inline"/>
+            </div>
+            <span class="col-sm-4 help-block">A block of help text tha</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">跳远</label>
+            <div class="col-sm-3 ">
+                <input type="text" value="" name="jump" placeholder="" data-error-style="inline"/>
+            </div>
+            <span class="col-sm-4 help-block">A block of help text tha</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">坐位体前屈</label>
+            <div class="col-sm-3 ">
+                <input type="text" value="" name="zuowei" placeholder="cm"/>
+            </div>
+            <span class="col-sm-4 help-block">A block of help text tha</span>
+        </div>
+        <div class="form-group man">
+            <label class="col-sm-2 control-label">1000米</label>
+            <div class="col-sm-3 ">
+                <input type="time" value="" name="onerun" datatype="erun"/>
+            </div>
+            <span class="col-sm-4 help-block">A block of help text tha</span>
+        </div>
+        <div class="form-group man has-error">
+            <label class="col-sm-2 control-label">引体向上</label>
+            <div class="col-sm-3 ">
+                <input type="text" value="" name="ytxs" placeholder="个" datatype="n1-2"/>
+            </div>
+            <span class="col-sm-4 help-block">A block of help text tha</span>
+        </div>
+        <div class="form-group woman">
+            <label class="col-sm-2 control-label">800米</label>
+            <div class="col-sm-3 ">
+                <input type="time" value="" name="erun" datatype="erun"/>
+            </div>
+            <span class="col-sm-4 help-block">A block of help text tha</span>
+        </div>
+        <div class="form-group woman">
+            <label class="col-sm-2 control-label">仰卧起坐</label>
+            <div class="col-sm-3 ">
+                <input type="text" value="" name="ywqz" datatype="n1-2"/>
+            </div>
+            <span class="col-sm-4 help-block">A block of help text tha</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 "></label>
+            <button id="submit" type="submit" class="btn btn-primary">提交</button>
+            <button type="submit" class="btn btn-primary">重置</button>
+
+        </div>
+    </form>
+</script>
 
 <script type="text/template" id="basic-template">
     <form class="form-horizontal">
@@ -102,9 +151,9 @@
         </div>
         <fieldset>
             <legend><%= legend %></legend>
-            <div class="control-group">
-                <label class="control-label" for="firstName">First Name</label>
-                <div class="controls">
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="firstName">学号</label>
+                <div class="col-sm-5 controls">
                     <input type="text" class="input-xlarge" id="firstName" name="firstName" data-error-style="inline">
                 </div>
             </div>
@@ -127,6 +176,9 @@
     </form>
 </script>
 
+<script>
+
+</script>
 
 
 <script src="js/lib/require.js" data-main="js/app.js"></script>

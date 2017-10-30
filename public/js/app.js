@@ -9,7 +9,8 @@ require.config({
         'backbone':'lib/backbone',
         'underscore':'lib/underscore',
         'serializeObject':'lib/serializeObject',
-        'backbone-validation-amd':'lib/backbone-validation-amd'
+        'backbone-validation-amd':'lib/backbone-validation-amd',
+        'validation_bootstrap':'lib/backbone.validation.bootstrap'
     },
     shim:{
         underscore:{
@@ -24,12 +25,15 @@ require.config({
         },
         serializeObject:{
             deps:["jquery"]
+        },
+        validation_bootstrap:{
+            deps:["underscore","backbone","backbone-validation-amd"]
         }
     }
 })
 
-require(["jquery","underscore","backbone","view/formView","model/user","router/router","bootstrap","lib/backbone-forms"],
-    function ($,_,Backbone,FormView,User,Router) {
+require(["jquery","underscore","backbone","model/user","router/router","bootstrap","lib/backbone-forms","validation_bootstrap"],
+    function ($,_,Backbone,User,Router) {
       var router= new Router();
       Backbone.history.start()
 

@@ -16,7 +16,7 @@ html body {
     color: white;
 }
 #grade {
-    padding-left: 40%;
+    padding-left: 30%;
 }
 .leftnav{
     position: absolute;
@@ -205,3 +205,8 @@ login {
 table ul a {
     cursor: pointer;
 }
+
+/*.woman,.man {
+    display: none;
+}*/
+
