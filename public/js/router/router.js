@@ -1,8 +1,8 @@
 /**
  * Created by 27353 on 2017/10/29.
  */
-define(['jquery','underscore','backbone','model/test','view/testView','view/grade','model/grade'],
-    function ($,_,Backbone,BasicModel,BasicView,GradeView,GradeModel) {
+define(['jquery','underscore','backbone','model/test','view/testView','view/grade','model/grade','view/login'],
+    function ($,_,Backbone,BasicModel,BasicView,GradeView,GradeModel,Login) {
     var Router = Backbone.Router.extend({
         routes:{
             '':'index'

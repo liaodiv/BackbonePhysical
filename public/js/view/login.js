@@ -1,7 +1,7 @@
 /**
  * Created by 27353 on 2017/10/12.
  */
-define(["lib/backbone","jquery", "views/officeView","views/alertBox"],function (Backbone,$,OfficeView,AlertBox) {
+define(["backbone","jquery", "view/alertBox"],function (Backbone,$,AlertBox) {
     var loginView = Backbone.View.extend({
         el:"#login",
         events:{
@@ -24,7 +24,7 @@ define(["lib/backbone","jquery", "views/officeView","views/alertBox"],function (
             });
 
             console.log(JSON.stringify(loginData));
-            $.post( 'http://192.168.1.142:8837/api/values/Login/1',loginData ,function (data,textStatus,jqX) {
+            $.post( '',loginData ,function (data,textStatus,jqX) {
                /* console.log('Get response');
                 console.log(textStatus);
                 console.log(data);*/
