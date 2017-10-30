@@ -1,6 +1,6 @@
 _.extend(Backbone.Validation.callbacks, {
   valid: function(view, attr, selector){
-    var control = view.$('[' + selector + '=' + attr + ']');
+     /*   var control = view.$('[' + selector + '=' + attr + ']');
     var group = control.parents(".control-group");
     group.removeClass("error");
 
@@ -15,9 +15,16 @@ _.extend(Backbone.Validation.callbacks, {
     }
     else{
       group.find(".help-block.error-message").remove();
-    }
+    }*/
+     var control = view.$('[' + selector + '=' + attr + ']');
+     var group = control.parents(".form-group");
+     group.removeClass('has-error');
+     group.addClass('has-success')
+      var target = group.find(".help-block");
+      target.addClass('hidden')
+
   },
-  invalid: function(view, attr, error, selector) {
+  /*invalid: function(view, attr, error, selector) {
     var control = view.$('[' + selector + '=' + attr + ']');
     var group = control.parents(".control-group");
     group.addClass("error");
@@ -45,5 +52,14 @@ _.extend(Backbone.Validation.callbacks, {
       var target = group.find(".help-block");
       target.text(error);
     }
-  }
+  }*/
+    invalid: function(view, attr, error, selector) {
+        var control = view.$('[' + selector + '=' + attr + ']');
+        var group = control.parents(".form-group");
+        group.addClass('has-error');
+
+        var target = group.find(".help-block");
+        target.removeClass('hidden')
+        target.text(error);
+    }
 });

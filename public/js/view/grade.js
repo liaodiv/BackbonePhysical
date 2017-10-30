@@ -12,14 +12,18 @@ define(['jquery','underscore','backbone','serializeObject','backbone-validation-
         },
         events:{
             'click #submit':'submit',
-            'click input[name=optionRadios]':'sex'
+            'click input[name=sex]':'sex',
+            'click #reset':'reset'
         },
         submit:function (e) {
             e.preventDefault();
 
 
             var data = this.$('form').serializeObject();
-            this.model.set(data,{validate:true});
+            console.log(data);
+            if(this.model.set(data,{validate:true})){
+                this.success(this.model.toJSON())
+            };
 
         },
         sex:function (e) {
@@ -37,6 +41,18 @@ define(['jquery','underscore','backbone','serializeObject','backbone-validation-
         render:function () {
             this.$el.html(this.tempate());
             return this;
+        },
+        success:function (data) {
+            console.log(data);
+            $.post(url,data);
+
+
+            this.render();
+
+        },
+        reset:function (e) {
+            e.preventDefault();
+            this.render();
         }
     })
     return grade;
