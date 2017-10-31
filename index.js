@@ -1,12 +1,46 @@
 /**
  * Created by 27353 on 2017/10/30.
  */
-const  express  = require('express');
-const  bodyParser = require('body-parser');
-const  app = express();
+const express  = require('express');
+const bodyParser = require('body-parser');
+const passport = require('passport');
+const Strategy =require('passport-local').Strategy;
 
+const db = require('./lib/database');
+
+passport.use(new Strategy(function (username,password,cb) {
+        db.findByUsername(username,function (err,user) {
+            if(err){
+                return cb(err);
+            }
+            if(!user) {
+                return cb(null,false);
+            }
+            if( user.password != password){
+                return cb(null,false);
+            }
+        });
+}));
+
+passport.serializeUser(function (user, cb) {
+    cb(null,user.id);
+});
+
+passport.deserializeUser(function (id,cb) {
+
+})
+
+
+const app = express();
+
+app.use(require('morgan')('combined'));
+app.use(require('cookie-parser'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.get('/', function (req, res) {
     console.log('/');
