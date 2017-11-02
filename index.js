@@ -3,12 +3,12 @@
  */
 const express  = require('express');
 const bodyParser = require('body-parser');
-const passport = require('passport');
-const Strategy =require('passport-local').Strategy;
+/*const passport = require('passport');
+const Strategy =require('passport-local').Strategy;*/
 
-const db = require('./lib/database');
+/*const db = require('./lib/database');*/
 
-passport.use(new Strategy(function (username,password,cb) {
+/*passport.use(new Strategy(function (username,password,cb) {
         db.findByUsername(username,function (err,user) {
             if(err){
                 return cb(err);
@@ -28,19 +28,16 @@ passport.serializeUser(function (user, cb) {
 
 passport.deserializeUser(function (id,cb) {
 
-})
+})*/
 
 
 const app = express();
 
-app.use(require('morgan')('combined'));
-app.use(require('cookie-parser'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
 
-app.use(passport.initialize());
-app.use(passport.session());
+/*app.use(require('cookie-parser'));*/
+/*app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));*/
+
 
 app.get('/', function (req, res) {
     console.log('/');
@@ -64,7 +61,7 @@ app.use(function(req, res, next) {
 
 
 
-var server = app.listen(3030, function () {
+var server = app.listen(3031, function () {
     var host = server.address().address;
     var port = server.address().port;
 
