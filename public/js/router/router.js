@@ -11,14 +11,15 @@ define(['jquery','underscore','backbone','model/test','view/testView','view/grad
             '':'index'
         },
         index:function () {
-            console.log('1232');
+            //console.log('1232');
             this._render(new  GradeView({model:new GradeModel()}));
           /*  new BasicView({model:new BasicModel()})*/
         },
         _render:function (view) {
             this.login.checkCookie(function () {
+                view.getuser(this.login.getCookie('username'));
                 $("#grade").append(view.render().el)
-            })
+            }.bind(this))
         }
     })
     return Router;

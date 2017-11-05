@@ -1,14 +1,15 @@
 /**
  * Created by liao on 2017/10/23.
  */
-define(['jquery','underscore','backbone','serializeObject','backbone-validation-amd'],
-    function ($,_,Backbone) {
+define(['jquery','underscore','backbone','view/alertBox','serializeObject','backbone-validation-amd'],
+    function ($,_,Backbone,AlertBox) {
     var grade = Backbone.View.extend({
         /*el:'#grade',*/
         tempate:_.template($("#grade-template").html()),
         initialize:function () {
             Backbone.Validation.bind(this);
             this.render();
+            this.user = null;
         },
         events:{
             'click #submit':'submit',
@@ -25,6 +26,9 @@ define(['jquery','underscore','backbone','serializeObject','backbone-validation-
                 this.success(this.model.toJSON())
             };
 
+        },
+        getuser:function (user) {
+            this.user = user;
         },
         sex:function (e) {
             var value = this.$el.find("input:radio:checked").val();
@@ -43,8 +47,16 @@ define(['jquery','underscore','backbone','serializeObject','backbone-validation-
             return this;
         },
         success:function (data) {
+
+            data.user = this.user;
             console.log(data);
-            $.post(url,data);
+            $.post('/postgrade',data,function (data,textStatus,jqXt) {
+                if(data.state === 'OK'){
+                    $('body').append( new AlertBox("提交成功").el);
+                }else {
+                    $('body').append( new AlertBox("提交失败").el);
+                }
+            });
 
 
             this.render();
