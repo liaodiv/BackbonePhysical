@@ -24,11 +24,12 @@ define(["backbone","jquery", "view/alertBox"],function (Backbone,$,AlertBox) {
             });
 
             console.log(JSON.stringify(loginData));
-            $.post( '',loginData ,function (data,textStatus,jqX) {
+            $.post('/login',loginData ,function (data,textStatus,jqX) {
                /* console.log('Get response');
                 console.log(textStatus);
                 console.log(data);*/
-                if(data.Status === "Succeed"){
+                console.log(data);
+                if(data.state === "success"){
                     this.setCookie("username",loginData.UserName,3);
                     var user = this.getCookie("username");
                     this.editNav(user);
@@ -46,8 +47,8 @@ define(["backbone","jquery", "view/alertBox"],function (Backbone,$,AlertBox) {
         },
         loginout:function () {
             $('body').append( new AlertBox("登出成功").el);
-            this.setCookie('username', "", -1);
-            router.navigate("#", {trigger: true, replace: true});
+            this.setCookie("username", "", -1);
+         /*   router.navigate("#", {trigger: true, replace: true});*/
         },
         display:function () {
             $("#myModal").modal({
@@ -67,7 +68,7 @@ define(["backbone","jquery", "view/alertBox"],function (Backbone,$,AlertBox) {
             var d = new Date();
             d.setTime(d.getTime()+ (hour * 60 * 60 * 1000));
             var expires = "expires="+d.toGMTString();
-            document.cookie = cname+"="+cvalue+"; "+expires;
+            document.cookie = cname+"="+cvalue+"; "+expires+"; path=/";
         },
         getCookie:function(cname){
             var name = cname + "=";
@@ -96,7 +97,7 @@ define(["backbone","jquery", "view/alertBox"],function (Backbone,$,AlertBox) {
         },
         editNav:function (user) {
             $("#nav-username").text(user);
-            app.admin = user;
+            /*app.admin = user;*/
         },
         loginOnEnter:function (event) {
             if( event.which !== 13  ){

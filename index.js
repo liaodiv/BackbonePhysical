@@ -1,44 +1,48 @@
 /**
  * Created by 27353 on 2017/10/30.
  */
-const express  = require('express');
-const bodyParser = require('body-parser');
-/*const passport = require('passport');
-const Strategy =require('passport-local').Strategy;*/
+var express  = require('express');
+var bodyParser = require('body-parser');
 
-/*const db = require('./lib/database');*/
+var db = require('./lib/database');
 
-/*passport.use(new Strategy(function (username,password,cb) {
-        db.findByUsername(username,function (err,user) {
-            if(err){
-                return cb(err);
-            }
-            if(!user) {
-                return cb(null,false);
-            }
-            if( user.password != password){
-                return cb(null,false);
-            }
-        });
-}));
+ app = express();
+app.use(bodyParser());
+app.use(express.static('public'))
 
-passport.serializeUser(function (user, cb) {
-    cb(null,user.id);
+
+
+
+app.get('/', function (req, res) {
+    res.send('Hello World!');
 });
 
-passport.deserializeUser(function (id,cb) {
+app.get('/index', function (req, res) {
+    console.log('/index');
+    res.sendfile('./public/index.html');
+});
 
-})*/
+app.post('/login',function (request,response) {
+    var user = {
+        username: request.body.UserName,
+        password: request.body.Pwd,
 
+    };
+    console.log(user);
+    db.findByUsername(user,function (error,data) {
+        response.send({state:"success",username:data})
+    })
 
-const app = express();
+})
 
+var server = app.listen(3000, function () {
+    var host = server.address().address;
+    var port = server.address().port;
 
-/*app.use(require('cookie-parser'));*/
-/*app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));*/
+    console.log('Example app listening at http://%s:%s', host, port);
+});
 
-
+/*
 app.get('/', function (req, res) {
     console.log('/');
     res.send('Hello World!');
@@ -48,7 +52,6 @@ app.use(express.static('public'));
 
 app.get('/index', function (req, res) {
     console.log('/index');
-    // res.send('Hello World!');
     res.sendfile('./public/index.html');
 });
 
@@ -66,4 +69,4 @@ var server = app.listen(3031, function () {
     var port = server.address().port;
 
     console.log('Example app listening at http://%s:%s', host, port);
-});
+});*/

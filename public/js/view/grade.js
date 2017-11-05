@@ -4,7 +4,7 @@
 define(['jquery','underscore','backbone','serializeObject','backbone-validation-amd'],
     function ($,_,Backbone) {
     var grade = Backbone.View.extend({
-        el:'#grade',
+        /*el:'#grade',*/
         tempate:_.template($("#grade-template").html()),
         initialize:function () {
             Backbone.Validation.bind(this);

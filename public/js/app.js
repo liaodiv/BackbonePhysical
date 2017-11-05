@@ -34,7 +34,7 @@ require.config({
 
 require(["jquery","underscore","backbone","model/user","router/router","bootstrap","lib/backbone-forms","validation_bootstrap"],
     function ($,_,Backbone,User,Router) {
-        $('#myModal').modal('toggle');
+        /*$('#myModal').modal('toggle');*/
       var router= new Router();
       Backbone.history.start()
 
